@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<launch>
+    <arg name="machine"/>
+    <node pkg="robot_localization" type="ekf_localization_node" name="blueslam_odometry" machine="$(arg machine)" clear_params="true" respawn="true" output="screen">
+        <rosparam command="load" file="$(find odometry)/params/blueslam_ekf_config.yaml"/>
+        <!--<remap from="odometry/filtered" to="/odom"/>-->
+    </node>
+</launch>
